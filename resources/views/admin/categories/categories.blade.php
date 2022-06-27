@@ -2,6 +2,22 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
+        @if (Session::get('status'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Added to Category!</strong> Category has been added successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @endif
+      @if (Session::get('updated_status'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Category Updated!</strong> Category has been updated successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    @endif
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -18,9 +34,10 @@
     </section>
 
     {{-- Main Content --}}
+
     <section class="content">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row">/deletecategory/{category}
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
@@ -41,12 +58,16 @@
                     <tbody>
                         {{-- data will be added here --}}
                       @foreach ($data as $item)
-                    <tr> 
-                      <td>{{$item->id}}</td>
-                      <td>{{$item->category_name}}</td>
-                      <td>{{$item->category_description}}</td>
-                      <td><p>image_id</p></td>
-                      <td></td>
+                    <tr>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->category_name}}</td>
+                    <td>{{$item->category_description}}</td>
+                    <td><p>image_id</p></td>
+                    <td>
+                        {{-- <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-trash"></i></a> --}}
+                        <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
+                        <a href="{{route('delete-category',$item->id)}}"><i class="fa fa-trash"></i></a>
+                    </td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -69,7 +90,7 @@
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
           }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-          
+
           $('#example2').DataTable({
             "paging": true,
             "lengthChange": false,

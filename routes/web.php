@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,23 +13,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
+/* Category Routes */
+Route::prefix('category')->group(function () {
+    Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
+    Route::get('/add','CategoryController@AddCategoryIndex')->name('add-category');
+    Route::post('/submit', 'CategoryController@InsertCategory');
+    Route::get('/categoryedit/{id}', 'CategoryController@editCategory')->name('edit-category');
+    Route::post('edit-category/{category}','CategoryController@updateCategory');
+    Route::get('/deletecategory/{category}','CategoryController@deleteCategory')->name('delete-category');
+});
+/* Admin Control */
+Route::prefix('/admin')->namespace('Admin')->group(function(){
+
+
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-//Admin Control
-// Route::prefix('/admin')->namespace('Admin')->group(function(){
-// //All the admin routes will be define here
-//     Route::get('dashboard','Admin/AdminController@dashboard');
-
-//Category Section
-Route::get('category','CategoryController@index')->name('category');
-
-
-
-// });
