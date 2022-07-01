@@ -29,12 +29,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Categories</h1>
+            <h1>Products</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-              <li class="breadcrumb-item active">Categories</li>
+              <li class="breadcrumb-item active">Product</li>
             </ol>
           </div>
         </div>
@@ -49,7 +49,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Categories will display below</h3>
+                  <h3 class="card-title">Products will display below</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -57,27 +57,28 @@
                     <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Name</th>
-                      <th>Description</th>
+                      <th>Product Name</th>
+                      <th>Product Description</th>
+                      <th>Category</th>
                       <th>Image</th>
                       <th>Action Panel</th>
                     </tr>
                     </thead>
                     <tbody>
                         {{-- data will be added here --}}
-                      @foreach ($data as $item)
+                      {{-- @foreach ($data as $item) --}}
                     <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->category_name}}</td>
-                    <td>{{$item->category_description}}</td>
+                    <td>product id</td>
+                    <td>Product name</td>
+                    <td>product description</td>
+                    <td>product category</td>
                     <td><p>image_id</p></td>
-                    <td>
-                        {{-- <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-trash"></i></a> --}}
+                    {{-- <td>
                         <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
                         <a href="{{route('delete-category',$item->id)}}"><i class="fa fa-trash"></i></a>
-                    </td>
+                    </td> --}}
                     </tr>
-                    @endforeach
+                    {{-- @endforeach --}}
                     </tbody>
                   </table>
                 </div>

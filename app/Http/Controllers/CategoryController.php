@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryValidation;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -53,21 +54,21 @@ Inserting Category into Database
 
     public function updateCategory(Request $request, Category $category)
     {
-        $category->category_name = $request->input('category_name');
-        $category->category_description = $request->input('category_description');
-        $category->save();
-        $request->session()->flash('updated_status', 'Category Updated Successfull');
+        $category->update($request->all());
+        Session::flash('updated_status', 'Updated Successfully');
         return redirect('/category/view');
-        // $category->update($request->all());
-        // Session::flash('updated_status', 'Updated Successfully');
-        // return redirect()->back();
+        // $category->category_name = $request->input('category_name');
+        // $category->category_description = $request->input('category_description');
+        // $category->save();
+        // $request->session()->flash('updated_status', 'Category Updated Successfull');
+        // return redirect('/category/view');
     // }
     }
 
     public function deleteCategory(Category $category, Request $request)
     {
-        // $category->delete();
-        // $category->session()->flash('')
-        dd($category, $request);
+        $category->delete();
+        Session::flash('delete_status', 'Category Deleted Successfully');
+        return redirect('/category/view');
     }
 }

@@ -12,19 +12,24 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('images/admin_images/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                <img src="{{asset('images/admin_images/user2-160x160.jpg') }}" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">LOGGED IN USER</a>
+                <a href="#" class="d-block">USER</a>
             </div>
         </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
 
+                <li class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -46,12 +51,6 @@
                                 <p>Add a Category</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/uplot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>uPlot</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -61,23 +60,18 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('View_category') }}" class="nav-link">
+                            <a href="{{ route('view-product') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Products</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add-category') }}" class="nav-link">
+                            <a href="{{ route('Add-Product-form') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add a Category</p>
+                                <p>Add a Product</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/charts/uplot.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>uPlot</p>
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
             </ul>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,17 +17,24 @@ use App\Http\Controllers\AdminController;
 Auth::routes();
     Route::get('/', 'HomeController@index')->name('home');
 
-/* Category Routes */
+    /* Admin Control */
+Route::prefix('/admin')->namespace('Admin')->group(function(){
+    });
+    /* Category Routes */
 Route::prefix('category')->group(function () {
-    Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
+    // Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
+    Route::get('/view', [CategoryController::class,'fetchCategories'])->name('View_category');
     Route::get('/add','CategoryController@AddCategoryIndex')->name('add-category');
     Route::post('/submit', 'CategoryController@InsertCategory');
     Route::get('/categoryedit/{id}', 'CategoryController@editCategory')->name('edit-category');
     Route::post('edit-category/{category}','CategoryController@updateCategory');
     Route::get('/deletecategory/{category}','CategoryController@deleteCategory')->name('delete-category');
 });
-/* Admin Control */
-Route::prefix('/admin')->namespace('Admin')->group(function(){
+Route::prefix('product')->group(function() {
+    Route::get('/viewProduct',[ProductController::class,'productIndex'])->name('view-product');
+    Route::get('/add-product', [ProductController::class,'AddProductForm'])->name('Add-Product-form');
+    Route::post('/create-product', [ProductController::class,'CreateProduct']);
+
 
 
 });
