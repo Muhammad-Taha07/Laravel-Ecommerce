@@ -57,28 +57,32 @@
                     <thead>
                     <tr>
                       <th>ID</th>
+                      <th>Category ID</th>
                       <th>Product Name</th>
                       <th>Product Description</th>
-                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Stocks</th>
                       <th>Image</th>
                       <th>Action Panel</th>
                     </tr>
                     </thead>
                     <tbody>
                         {{-- data will be added here --}}
-                      {{-- @foreach ($data as $item) --}}
+                      @foreach ($data as $item)
                     <tr>
-                    <td>product id</td>
-                    <td>Product name</td>
-                    <td>product description</td>
-                    <td>product category</td>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->category_id}}</td>
+                    <td>{{$item->product_name}}</td>
+                    <td>{{$item->description}}</td>
+                    <td>{{$item->price}}</td>
+                    <td>{{$item->stock}}</td>
                     <td><p>image_id</p></td>
                     {{-- <td>
                         <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
                         <a href="{{route('delete-category',$item->id)}}"><i class="fa fa-trash"></i></a>
                     </td> --}}
                     </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
                     </tbody>
                   </table>
                 </div>

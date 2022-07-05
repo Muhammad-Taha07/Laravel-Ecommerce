@@ -2,27 +2,38 @@
 
 namespace App\Http\Controllers;
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryValidation;
+use App\Http\Requests\ProductValidation;
 use Illuminate\Support\Facades\Session;
 
 
 class ProductController extends Controller
 {
-    public function productIndex(Category $category)
+    public function productIndex()
     {
-        $category->all();
-        return view('admin.products.products', ['category' => $category]);
+        // $product->all();
+        $data = Product::all();
+        return view('admin.products.products', ['data' => $data]);
     }
 
     public function AddProductForm()
     {
-        return view('admin.products.products_add');
+        $data = Category::all();
+        return view('admin.products.products_add', ['data' => $data]);
     }
 
     public function CreateProduct(ProductValidation $request, Product $product)
     {
-        echo "hello";
+        $product->category_id = $request->input('category_id');
+        $product->product_name = $request->input('product_name');
+        $product->description = $request->input('product_description');
+        $product->price = $request->input('product_price');
+        $product->stock = $request->input('product_stocks');
+        $product->save();
+        $request->session('status')->flash('status', 'Category Added Successfully');
+        return redirect('/product/viewProduct');
     }
 
 }

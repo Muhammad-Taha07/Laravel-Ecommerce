@@ -24,16 +24,17 @@ Route::prefix('/admin')->namespace('Admin')->group(function(){
 Route::prefix('category')->group(function () {
     // Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
     Route::get('/view', [CategoryController::class,'fetchCategories'])->name('View_category');
-    Route::get('/add','CategoryController@AddCategoryIndex')->name('add-category');
-    Route::post('/submit', 'CategoryController@InsertCategory');
-    Route::get('/categoryedit/{id}', 'CategoryController@editCategory')->name('edit-category');
-    Route::post('edit-category/{category}','CategoryController@updateCategory');
-    Route::get('/deletecategory/{category}','CategoryController@deleteCategory')->name('delete-category');
+    Route::get('/add', [CategoryController::class, 'AddCategoryIndex'])->name('add-category');
+    Route::post('/submit', [CategoryController::class, 'InsertCategory']);
+    Route::get('/categoryedit/{id}', [CategoryController::class, 'editCategory'])->name('edit-category');
+    Route::post('edit-category/{category}', [CategoryController::class, 'updateCategory']);
+    Route::get('/deletecategory/{category}', [CategoryController::class, 'deleteCategory'])->name('delete-category');
 });
 Route::prefix('product')->group(function() {
     Route::get('/viewProduct',[ProductController::class,'productIndex'])->name('view-product');
     Route::get('/add-product', [ProductController::class,'AddProductForm'])->name('Add-Product-form');
     Route::post('/create-product', [ProductController::class,'CreateProduct']);
+    
 
 
 

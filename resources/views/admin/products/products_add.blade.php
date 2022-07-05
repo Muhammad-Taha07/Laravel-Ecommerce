@@ -29,7 +29,7 @@
              </div>
              </div>
             <!-- /.card-header -->
-            <form action="submit" method="POST">
+            <form action="create-product" method="POST">
                     @csrf
                     <div class="card-body">
                       <label>Product Name</label>
@@ -38,9 +38,15 @@
                       <label>Product Description</label>
                       <input style="margin-bottom: 1%" type="text" name="product_description" class="form-control" id="product_d" placeholder="Enter Product Description">
 
+                      <label>Category ID</label>
+                      <select name="dropdown" id="dropdownid">
+                      @foreach ($data as $row )
+                      <option value="{{$row->category_id}}">{{$row->category_name}}</option>
+                      @endforeach
+                      </select>
                       <div style="float: left" class="col-md-6">
                       <label>Stock</label>
-                      <input style="margin-bottom: 1%" type="text" name="product_stock" class="form-control col-md-6" id="product_s" placeholder="Enter No of Stocks">
+                      <input style="margin-bottom: 1%" type="text" name="product_stocks" class="form-control col-md-6" id="product_s" placeholder="Enter No of Stocks">
                       </div>
 
                       <div style="float: left" class="col-md-6">
