@@ -19,8 +19,9 @@
 
 <section class="content">
     <div class="container-fluid">
-        <form method="POST" action="{{url('product/edit-product', ['id' => $product->id])}}">
+        <form method="POST" action="{{url('/product/edit-product', ['id' => $product->id])}}">
         @csrf
+        @method('put')
         <div class="card card-success">
             <div class="card-header">
                 <h3 class="card-title">Edit Product</h3>
@@ -39,6 +40,7 @@
                     <div class="form-group">
                         <label for="roles">Category ID:</label>
                         <select class="form-control" name="category_id" id="id_cat">
+                            <option value="" selected>Select</option>
                             @foreach ($dropdown as $data)
                             <option value="{{$data->id}}">{{$data->category_name}}</option>
                             @endforeach
@@ -51,9 +53,9 @@
                   <div class="form-group">
                       <label for="roles">Product Name:</label>
                       <div class="input-group">
-                        <input type="text" name="name" placeholder="Enter Product Name" value="{{$product->product_name}}" class="form-control">
+                        <input type="text" name="product_name" placeholder="Enter Product Name" value="{{$product->product_name}}" class="form-control">
                       </div>
-                      @error('name')
+                      @error('product_name')
                       <p style="color:red">{{$message}}</p>
                       @enderror
                     </div>
@@ -79,7 +81,7 @@
                         </div>
                         <input type="text" placeholder="Enter Product Price" name="product_price" value="{{$product->price}}" class="form-control">
                     </div>
-                    @error('sale_rate')
+                    @error('product_price')
                     <p style="color:red">{{$message}}</p>
                     @enderror
                 </div>

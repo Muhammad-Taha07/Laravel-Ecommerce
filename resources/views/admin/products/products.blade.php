@@ -4,23 +4,7 @@
     <section class="content-header">
         @if (Session::get('status'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Added to Category!</strong> Category has been added successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @endif
-      @if (Session::get('updated_status'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Category Updated!</strong> Category has been updated successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    @endif
-      @if (Session::get('delete_status'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Category Deleted!</strong> Category has been deleted successfully.
+        {{Session::get('status')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

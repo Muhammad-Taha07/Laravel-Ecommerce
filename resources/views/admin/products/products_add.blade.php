@@ -1,4 +1,5 @@
 @extends('layouts.admin_layout.admin_layout')
+@section('title','Add Product')
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -39,6 +40,7 @@
                     <div class="form-group">
                         <label for="roles">Category ID:</label>
                         <select class="form-control" name="category_id" id="id_cat">
+                            <option value="" selected>Select Category</option>
                             @foreach ($dropdown as $data)
                             <option value="{{$data->id}}">{{$data->category_name}}</option>
                             @endforeach
@@ -51,9 +53,9 @@
                   <div class="form-group">
                       <label for="roles">Product Name:</label>
                       <div class="input-group">
-                        <input type="text" name="name" placeholder="Enter Product Name" value="{{old('name')}}" class="form-control">
+                        <input type="text" name="product_name" placeholder="Enter Product Name" value="{{old('name')}}" class="form-control">
                       </div>
-                      @error('name')
+                      @error('product_name')
                       <p style="color:red">{{$message}}</p>
                       @enderror
                     </div>
@@ -79,7 +81,7 @@
                         </div>
                         <input type="text" placeholder="Enter Product Price" name="product_price" value="{{old('product_price')}}" class="form-control">
                     </div>
-                    @error('sale_rate')
+                    @error('product_price')
                     <p style="color:red">{{$message}}</p>
                     @enderror
                 </div>

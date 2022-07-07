@@ -34,7 +34,10 @@ Route::prefix('product')->group(function() {
     Route::get('/viewProduct',[ProductController::class,'productIndex'])->name('view-product');
     Route::get('/add-product', [ProductController::class,'AddProductForm'])->name('Add-Product-form');
     Route::post('/create-product', [ProductController::class,'CreateProduct'])->name('create-product');
-    Route::get('/productedit/{id}', [ProductController::class, 'editProduct'])->name('edit-product');
+    Route::get('/productedit/{product}', [ProductController::class, 'editProduct'])->name('edit-product');
+    Route::put('/edit-product/{product}', [ProductController::class, 'update']);
+
+
 
 
 

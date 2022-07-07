@@ -31,19 +31,28 @@ class ProductController extends Controller
         $product->price = $request->input('product_price');
         $product->stock = $request->input('product_stocks');
         $product->save();
-        $request->session('status')->flash('status', 'Category Added Successfully');
+        $request->session('status')->flash('status', 'Product Added Successfully');
         return redirect('/product/viewProduct');
     }
 
-    public function editProduct($id)
+    public function editProduct(Product $product)
     {
         $dropdown = Category::all();
-        $product = Product::find($id);
         if($product)
         {
             return view('admin.products.products_edit', ['product' => $product, 'dropdown' => $dropdown]);
         }
     }
+
+    public function update(Product $product, Request $request)
+    {
+        // $product->update(
+            $product->update($request->all());
+            $request->session('status')->flash('status', 'Product Updated Successfully');
+            return redirect('/product/viewProduct');
+    }
+
+    
 
     
 
