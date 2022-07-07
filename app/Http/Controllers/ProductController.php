@@ -13,15 +13,14 @@ class ProductController extends Controller
 {
     public function productIndex()
     {
-        // $product->all();
         $data = Product::all();
         return view('admin.products.products', ['data' => $data]);
     }
 
     public function AddProductForm()
     {
-        $data = Category::all();
-        return view('admin.products.products_add', ['data' => $data]);
+        $dropdown = Category::all();
+        return view('admin.products.products_add', ['dropdown' => $dropdown]);
     }
 
     public function CreateProduct(ProductValidation $request, Product $product)
@@ -35,5 +34,7 @@ class ProductController extends Controller
         $request->session('status')->flash('status', 'Category Added Successfully');
         return redirect('/product/viewProduct');
     }
+
+
 
 }

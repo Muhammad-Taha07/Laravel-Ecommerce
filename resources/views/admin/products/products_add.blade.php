@@ -35,25 +35,36 @@
             <div class="card-body">
                 <div class="row">
 
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="roles">Category ID:</label>
+                        <select class="form-control" name="category_id" id="id_cat">
+                            @foreach ($dropdown as $data)
+                            <option value="{{$data->id}}">{{$data->category_name}}</option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="number" name="category_id" value="" class="form-control"> --}}
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                   <div class="form-group">
                       <label for="roles">Product Name:</label>
                       <div class="input-group">
-                        <input type="text" name="name"  value="{{old('name')}}" class="form-control">
+                        <input type="text" name="name" placeholder="Enter Product Name" value="{{old('name')}}" class="form-control">
                       </div>
                       @error('name')
                       <p style="color:red">{{$message}}</p>
                       @enderror
                     </div>
               </div>
-    
+
                 <!-- /.col -->
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
-                      
-                        <label for="roles">Purchase Quantity:</label>
-                        <input type="number" name="purchase_qty" value="{{old('purchase_qty')}}" class="form-control">
-                        @error('purchase_qty')
+                        <label for="roles">Stocks:</label>
+                        <input type="number" placeholder="Enter Stocks" name="product_stocks" value="{{old('purchase_stocks')}}" class="form-control">
+                        @error('product_stocks')
                         <p style="color:red">{{$message}}</p>
                         @enderror
                     </div>
@@ -61,27 +72,12 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="roles">Purchase Rate:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Rs.</span>
-                            </div>
-                            <input type="text" name="purchase_rate" value="{{old('purchase_rate')}}" class="form-control">
-                        </div>
-                        @error('purchase_rate')
-                        <p style="color:red">{{$message}}</p>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                    <label for="roles">Sale Rate:</label>
+                    <label for="roles">Product Price:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rs.</span>
                         </div>
-                        <input type="text" name="sale_rate" value="{{old('sale_rate')}}" class="form-control">
+                        <input type="text" placeholder="Enter Product Price" name="product_price" value="{{old('product_price')}}" class="form-control">
                     </div>
                     @error('sale_rate')
                     <p style="color:red">{{$message}}</p>
@@ -92,7 +88,7 @@
                 </div>
                 <div class="form-group">
                     <label>Product Description:</label>
-                        <textarea class="form-control" name="description" rows="4" cols="50"></textarea>
+                        <textarea class="form-control" placeholder="Enter Description" name="product_description" rows="4" cols="50"></textarea>
                 </div>
         </div>
             <div class="card-footer">
@@ -102,28 +98,8 @@
                 </div>
                 </div>
             </div>
-       
-    </div>
 
-    <div class="card card-danger">
-        <div class="card-header">
-        <h3 class="card-title">Different Width</h3>
-        </div>
-        <div class="card-body">
-        <div class="row">
-        <div class="col-3">
-        <input type="text" class="form-control" placeholder=".col-3">
-        </div>
-        <div class="col-4">
-        <input type="text" class="form-control" placeholder=".col-4">
-        </div>
-        <div class="col-5">
-        <input type="text" class="form-control" placeholder=".col-5">
-        </div>
-        </div>
-        </div>
-        
-        </div>
+    </div>
     </form>
 </div>
 </section>
