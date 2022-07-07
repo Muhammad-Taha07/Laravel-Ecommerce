@@ -77,10 +77,10 @@
                     <td>{{$item->price}}</td>
                     <td>{{$item->stock}}</td>
                     <td><p>image_id</p></td>
-                    {{-- <td>
-                        <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('delete-category',$item->id)}}"><i class="fa fa-trash"></i></a>
-                    </td> --}}
+                    <td>
+                        <a href="{{route('edit-product', $item->id)}}"><i class="fa fa-edit"></i></a>
+                        {{-- <a href="{{route('delete-product',$item->id)}}"><i class="fa fa-trash"></i></a> --}}
+                    </td>
                     </tr>
                     @endforeach
                     </tbody>

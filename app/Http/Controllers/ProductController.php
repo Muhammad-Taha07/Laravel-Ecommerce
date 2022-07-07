@@ -35,6 +35,16 @@ class ProductController extends Controller
         return redirect('/product/viewProduct');
     }
 
+    public function editProduct($id)
+    {
+        $dropdown = Category::all();
+        $product = Product::find($id);
+        if($product)
+        {
+            return view('admin.products.products_edit', ['product' => $product, 'dropdown' => $dropdown]);
+        }
+    }
 
+    
 
 }
