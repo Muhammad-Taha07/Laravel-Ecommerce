@@ -33,7 +33,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Products will display below</h3>
+                  <h3 class="card-title"><strong>Products listing</strong></h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -63,7 +63,7 @@
                     <td><p>image_id</p></td>
                     <td>
                         <a href="{{route('edit-product', $item->id)}}"><i class="fa fa-edit"></i></a>
-                        {{-- <a href="{{route('delete-product',$item->id)}}"><i class="fa fa-trash"></i></a> --}}
+                        <a href="{{route('delete-product',$item->id)}}" style="margin-left: 10px"><i class="fa fa-trash"></i></a>
                     </td>
                     </tr>
                     @endforeach
@@ -77,27 +77,27 @@
             <!-- /.col -->
           </div>
           <!-- /.row -->
+          {{-- Searching on Table --}}
+          <script>
+            $(function () {
+              $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+              }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+              $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+              });
+            });
+          </script>
         </div>
         <!-- /.container-fluid -->
       </section>
-
-      <script>
-        $(function () {
-          $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-          $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-          });
-        });
-      </script>
 
 @endsection

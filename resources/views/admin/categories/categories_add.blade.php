@@ -29,14 +29,33 @@
              </div>
              </div>
             <!-- /.card-header -->
-            <form action="submit" method="POST">
+            <form action="submit" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                      <label>Category Name</label>
-                      <input style="margin-bottom: 1%" type="text" name="category_name" class="form-control" id="category_n" placeholder="Enter Category Name">
-                      <label>Category Description</label>
-                      <input style="margin-bottom: 1%" type="text" name="category_description" class="form-control" id="category_d" placeholder="Enter Category Description">
-                      <button type="submit" name="btnSubmit" class="btn btn-primary float-right">Submit</button>
+                    <div class="col-md-6">
+                        <label>Category Name</label>
+                        <input style="margin-bottom: 1%" type="text" name="category_name" class="form-control" id="category_n" placeholder="Enter Category Name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Category Image</label>
+                          <div class="input-group">
+                              <div class="custom-file">
+                                  <input type="file" class="custom-file-input" name="category_image" id="category_image">
+                              <label class="custom-file-label" for="category_image">Category Image</label>
+                            </div>
+                        </div>
+                          @error('category_image')
+                          <p style="color:red">{{$message}}</p>
+                          @enderror
+                        </div>
+                      </div>
+
+                    <label>Category Description</label>
+                    <input style="margin-bottom: 1%" type="text" name="category_description" class="form-control" id="category_d" placeholder="Enter Category Description">
+
+                    <button type="submit" name="btnSubmit" class="btn btn-primary float-right">Submit</button>
                       </div>
                     </div>
                 </form>

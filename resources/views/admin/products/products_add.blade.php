@@ -38,7 +38,7 @@
 
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="roles">Category ID:</label>
+                        <label for="roles">Select Category:</label>
                         <select class="form-control" name="category_id" id="id_cat">
                             <option value="" selected>Select Category</option>
                             @foreach ($dropdown as $data)

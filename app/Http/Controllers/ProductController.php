@@ -44,16 +44,20 @@ class ProductController extends Controller
         }
     }
 
-    public function update(Product $product, Request $request)
+    public function updateProduct(Product $product, Request $request)
     {
-        // $product->update(
-            $product->update($request->all());
-            $request->session('status')->flash('status', 'Product Updated Successfully');
-            return redirect('/product/viewProduct');
+        $product->update($request->all());
+        $request->session('status')->flash('status', 'Product Updated Successfully');
+        return redirect('/product/viewProduct');
     }
 
-    
+    public function deleteProduct(Product $product)
+    {
+        $product->delete();
+        Session::flash('status', 'Product Deleted Successfully');
+        return redirect('/product/viewProduct');
+    }
 
-    
+
 
 }

@@ -49,7 +49,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Categories will display below</h3>
+                  <h3 class="card-title"><strong>Categories</strong></h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -74,7 +74,7 @@
                     <td>
                         {{-- <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-trash"></i></a> --}}
                         <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
-                        <a href="{{route('delete-category',$item->id)}}"><i class="fa fa-trash"></i></a>
+                        <a href="{{route('delete-category',$item->id)}}" style="margin-left: 10px"><i class="fa fa-trash"></i></a>
                     </td>
                     </tr>
                     @endforeach
