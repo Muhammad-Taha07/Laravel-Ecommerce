@@ -37,7 +37,7 @@ Route::prefix('product')->group(function() {
     Route::get('/productedit/{product}', [ProductController::class, 'editProduct'])->name('edit-product');
     Route::put('/edit-product/{product}', [ProductController::class, 'updateProduct']);
     Route::get('/deleteproduct/{product}', [ProductController::class, 'deleteProduct'])->name('delete-product');
-
+    
 
 
 

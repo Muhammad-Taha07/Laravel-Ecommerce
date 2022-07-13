@@ -38,18 +38,17 @@ Inserting Category into Database
     {
         $category->category_name = $request->input('category_name');
         $category->category_description = $request->input('category_name');
-
         $category->save();
 
         if($request->hasFile('category_image'))
         {
             $file = $request->file('category_image');
             $extension = $file->getClientOriginalExtension();
-            $filename = rand(11111, 99999).'.'.$extension;
+            $filename = "image_".rand(1111, 9999).'.'.$extension;
             $file->move('uploads/category_image/', $filename);
             $photo = new Image;
             $photo->image = $filename;
-            $photo->type = "master";
+            $photo->type = "Master";
             $category->images()->save($photo);
         }
         $request->session('status')->flash('status', 'Submitted Successfull');

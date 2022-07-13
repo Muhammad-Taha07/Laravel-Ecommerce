@@ -23,9 +23,9 @@
              <div class="card-header">
                 <h3 class="card-title">Categories</h3>
                 <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-        <i class="fas fa-minus"></i>
-        </button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+            </button>
              </div>
              </div>
             <!-- /.card-header -->
@@ -54,7 +54,6 @@
 
                     <label>Category Description</label>
                     <input style="margin-bottom: 1%" type="text" name="category_description" class="form-control" id="category_d" placeholder="Enter Category Description">
-
                     <button type="submit" name="btnSubmit" class="btn btn-primary float-right">Submit</button>
                       </div>
                     </div>

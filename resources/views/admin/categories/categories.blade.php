@@ -70,7 +70,11 @@
                     <td>{{$item->id}}</td>
                     <td>{{$item->category_name}}</td>
                     <td>{{$item->category_description}}</td>
-                    <td><p>image_id</p></td>
+                    @foreach($item->images as $photo)
+                    <td>
+                    <img src="{{asset('uploads/category_image/'. $photo->image)}}" width="100px" height="100px" alt="Image">
+                    </td>
+                    @endforeach
                     <td>
                         {{-- <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-trash"></i></a> --}}
                         <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
