@@ -44,9 +44,9 @@
                       <th>Category ID</th>
                       <th>Product Name</th>
                       <th>Product Description</th>
-                      <th>Price</th>
+                      <th>Product Price</th>
                       <th>Stocks</th>
-                      <th>Image</th>
+                      <th>Product Image</th>
                       <th>Action Panel</th>
                     </tr>
                     </thead>
@@ -60,7 +60,12 @@
                     <td>{{$item->description}}</td>
                     <td>{{$item->price}}</td>
                     <td>{{$item->stock}}</td>
-                    <td><p>image_id</p></td>
+                    @foreach($item->productImage as $photo)
+                    <td>
+                        <img src="{{asset('uploads/product_image/'. $photo->image)}}" width="100px" height="100px" alt="Image">
+                        {{-- <img src="{{ $photo->image ? asset('uploads/category_image/'. $photo->image) : env('image')}}" width="100px" height="100px" alt="Image"> --}}
+                    </td>
+                    @endforeach
                     <td>
                         <a href="{{route('edit-product', $item->id)}}"><i class="fa fa-edit"></i></a>
                         <a href="{{route('delete-product',$item->id)}}" style="margin-left: 10px"><i class="fa fa-trash"></i></a>

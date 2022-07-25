@@ -20,7 +20,7 @@
 
 <section class="content">
     <div class="container-fluid">
-        <form method="POST" action="{{route("create-product")}}">
+        <form method="POST" action="{{route("create-product")}}" enctype="multipart/form-data">
         @csrf
         <div class="card card-success">
             <div class="card-header">
@@ -45,7 +45,6 @@
                             <option value="{{$data->id}}">{{$data->category_name}}</option>
                             @endforeach
                         </select>
-                        {{-- <input type="number" name="category_id" value="" class="form-control"> --}}
                     </div>
                 </div>
 
@@ -65,21 +64,36 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="roles">Stocks:</label>
-                        <input type="number" placeholder="Enter Stocks" name="product_stocks" value="{{old('purchase_stocks')}}" class="form-control">
+                        <input type="number" placeholder="Enter Stocks" name="stock" value="{{old('purchase_stocks')}}" class="form-control">
                         @error('product_stocks')
                         <p style="color:red">{{$message}}</p>
                         @enderror
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Product Image</label>
+                      <div class="input-group">
+                          <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="product_image" id="p_image">
+                          <label class="custom-file-label" for="image">Upload Product Image</label>
+                      </div>
+                    </div>
+                          @error('category_image')
+                          <p style="color:red">{{$message}}</p>
+                          @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-6">
                     <div class="form-group">
                     <label for="roles">Product Price:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rs.</span>
                         </div>
-                        <input type="text" placeholder="Enter Product Price" name="product_price" value="{{old('product_price')}}" class="form-control">
+                        <input type="text" placeholder="Enter Product Price" name="price" value="{{old('product_price')}}" class="form-control">
                     </div>
                     @error('product_price')
                     <p style="color:red">{{$message}}</p>
@@ -90,13 +104,14 @@
                 </div>
                 <div class="form-group">
                     <label>Product Description:</label>
-                        <textarea class="form-control" placeholder="Enter Description" name="product_description" rows="4" cols="50"></textarea>
+                        <textarea class="form-control" placeholder="Enter Description" name="description" rows="4" cols="50"></textarea>
                 </div>
-        </div>
+            </div>
+
             <div class="card-footer">
                 <div class="row">
                 <div class="col-12">
-                <button type="submit" name="submit" class="btn btn-primary float-right">Submit</button>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
                 </div>
                 </div>
             </div>

@@ -82,6 +82,7 @@ Inserting Category into Database
                     unlink("uploads/category_image/".$imageName);
                 }
             }
+            
             $extension = $file->getClientOriginalExtension();
             $filename = "image_".rand(1111, 9999).'.'.$extension;
             $file->move('uploads/category_image/', $filename);

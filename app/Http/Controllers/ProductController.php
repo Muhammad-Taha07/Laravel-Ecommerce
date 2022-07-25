@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Category;
+use App\Image;
 use App\Product;
+use App\Category;
+use File;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryValidation;
-use App\Http\Requests\ProductValidation;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\ProductValidation;
+use App\Http\Requests\CategoryValidation;
 
 
 class ProductController extends Controller
@@ -25,12 +27,25 @@ class ProductController extends Controller
 
     public function CreateProduct(ProductValidation $request, Product $product)
     {
-        $product->category_id = $request->input('category_id');
-        $product->product_name = $request->input('product_name');
-        $product->description = $request->input('product_description');
-        $product->price = $request->input('product_price');
-        $product->stock = $request->input('product_stocks');
-        $product->save();
+        $createProduct['category_id']  = $request->input('category_id');
+        $createProduct['product_name'] = $request->input('product_name');
+        $createProduct['description']  = $request->input('description');
+        $createProduct['price']        = $request->input('price');
+        $createProduct['stock']        = $request->input('stock');
+        $createdProduct = $product->create($createProduct);
+
+        if($request->hasFile('product_image'))
+        {
+            $file = $request->file('product_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = "Product_image_".rand(1111, 9999).'.'.$extension;
+            $file->move('uploads/product_image/', $filename);
+            $photo = new Image;
+            $photo->image = $filename;
+            $photo->type = "Master";
+            $createdProduct->images()->save($photo);
+        }
+
         $request->session('status')->flash('status', 'Product Added Successfully');
         return redirect('/product/viewProduct');
     }
@@ -46,6 +61,28 @@ class ProductController extends Controller
 
     public function updateProduct(Product $product, Request $request)
     {
+        if($request->hasFile('product_image'))
+        {
+            $file = $request->file('product_image');
+            if($product->productImage)
+            {
+                $product->productImage()->delete();
+                $imageName = $product->productImage->first()->image;
+                $imagePath = public_path("uploads/product_image/".$imageName);
+                if(File::exists($imagePath))
+                {
+                    unlink("uploads/product_image/".$imageName);
+                }
+            }
+            $extension = $file->getClientOriginalExtension();
+            $filename = "image_".rand(1111, 9999).'.'.$extension;
+            $file->move('uploads/product_image/', $filename);
+            $photo = new Image;
+            $photo->image = $filename;
+            $photo->type = "Master";
+            $product->images()->save($photo);
+        }
+
         $product->update($request->all());
         $request->session('status')->flash('status', 'Product Updated Successfully');
         return redirect('/product/viewProduct');
@@ -57,7 +94,5 @@ class ProductController extends Controller
         Session::flash('status', 'Product Deleted Successfully');
         return redirect('/product/viewProduct');
     }
-
-
 
 }

@@ -26,9 +26,8 @@ class ProductValidation extends FormRequest
         $rules =
         [
             'product_name' => 'required',
-            'product_stocks' => 'required|numeric',
-            'product_price' => 'required|numeric',
-            'product_description' => 'required'
+            'stock' => 'required|numeric',
+            'price' => 'required|numeric'
         ];
         return $rules;
     }
@@ -38,10 +37,10 @@ class ProductValidation extends FormRequest
         $messages =
         [
             'product_name.required'   => 'Required Fields cannot be left empty',
-            'product_price.required'  => 'Required Fields cannot be left empty',
-            'product_price.numeric'   => 'Required Fields can only be numeric',
-            'product_stocks.required' => 'Required Fields cannot be left empty',
-            'product_stocks.numeric'  => 'Required Fields can only be numeric'
+            'price.required'  => 'Required Fields cannot be left empty',
+            'price.numeric'   => 'Required Fields can only be numeric',
+            'stock.required' => 'Required Fields cannot be left empty',
+            'stock.numeric'  => 'Required Fields can only be numeric'
         ];
         return $messages;
     }
