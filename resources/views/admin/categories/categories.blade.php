@@ -4,28 +4,14 @@
     <section class="content-header">
         @if (Session::get('status'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Added to Category!</strong> Category has been added successfully.
+        {{Session::get('status')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       @endif
-      @if (Session::get('updated_status'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Category Updated!</strong> Category has been updated successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    @endif
-      @if (Session::get('delete_status'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Category Deleted!</strong> Category has been deleted successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @endif
+
+
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -73,6 +59,7 @@
                     @foreach($item->images as $photo)
                     <td>
                     <img src="{{asset('uploads/category_image/'. $photo->image)}}" width="100px" height="100px" alt="Image">
+                    {{-- <img src="{{ $photo->image ? asset('uploads/category_image/'. $photo->image) : env('image')}}" width="100px" height="100px" alt="Image"> --}}
                     </td>
                     @endforeach
                     <td>

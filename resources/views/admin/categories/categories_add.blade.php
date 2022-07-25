@@ -32,6 +32,8 @@
             <form action="submit" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
+
+
                     <div class="col-md-6">
                         <label>Category Name</label>
                         <input style="margin-bottom: 1%" type="text" name="category_name" class="form-control" id="category_n" placeholder="Enter Category Name">

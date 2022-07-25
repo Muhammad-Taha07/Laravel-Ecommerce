@@ -19,11 +19,15 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
-    
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function imagesForListing()
+    {
+        return $this->morphMany(Image::class, 'imageable')->where('type', 'Master');
+    }
 
 }

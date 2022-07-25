@@ -29,11 +29,27 @@
         </button>
              </div>
              </div>
-                <form method="POST" action="{{url('category/edit-category', ['id'=>$category->id])}}">
+                <form method="POST" action="{{url('category/edit-category', ['id'=>$category->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                       <label>Category Name</label>
                       <input style="margin-bottom: 1%" type="text" name="category_name" value="{{$category->category_name}}" class="form-control" id="category_n" placeholder="Enter Category Name">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Category Image</label>
+                          <div class="input-group">
+                              <div class="custom-file">
+                                  <input type="file" class="custom-file-input" name="category_image" id="category_image">
+                              <label class="custom-file-label" for="category_image">Category Image</label>
+                            </div>
+                        </div>
+                          @error('category_image')
+                          <p style="color:red">{{$message}}</p>
+                          @enderror
+                        </div>
+                      </div>
+
                       <label>Category Description</label>
                       <input style="margin-bottom: 1%" type="text" name="category_description" value="{{$category->category_description}}" class="form-control" id="category_d" placeholder="Enter Category Description">
                       <button type="submit" name="btnSubmit" class="btn btn-primary float-right">Submit</button>
