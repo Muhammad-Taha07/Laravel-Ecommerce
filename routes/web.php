@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,7 @@ use App\Http\Controllers\UserHomeController;
 */
 Auth::routes();
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/testpage', [HomeController::class, 'testpage']);
 
     /* Admin Control */
 Route::prefix('/admin')->namespace('Admin')->group(function(){

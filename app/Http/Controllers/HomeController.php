@@ -26,4 +26,9 @@ class HomeController extends Controller
         // return view('home');
         return view('admin.admin_dashboard');
     }
+
+    public function testpage()
+    {
+        return view('users.master_layouts.master_layout');
+    }
 }
