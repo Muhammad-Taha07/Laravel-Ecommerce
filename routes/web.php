@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ConfigController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,8 @@ use App\Http\Controllers\HomeController;
 */
 Auth::routes();
     Route::get('/testpage', [HomeController::class, 'testpage']);
+    Route::get('/getmac', [ConfigController::class, 'getMacAddress']);
+
 
     /* Admin Control */
 Route::prefix('/admin')->namespace('Admin')->group(function(){
