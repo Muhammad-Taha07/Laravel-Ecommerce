@@ -17,7 +17,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 Auth::routes();
-    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/testpage', [HomeController::class, 'testpage']);
 
     /* Admin Control */

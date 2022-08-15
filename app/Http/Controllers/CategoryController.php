@@ -45,7 +45,9 @@ Inserting Category into Database
         {
             $file = $request->file('category_image');
             $extension = $file->getClientOriginalExtension();
-            $filename = "image_".rand(1111, 9999).'.'.$extension;
+            $digitLimit = 4;
+            $filename = "image_".rand(pow(10, $digitLimit - 1), pow(10, $digitLimit) -1).'.'.$extension;
+            // $filename = "image_".rand(1111, 9999).'.'.$extension;
             $file->move('uploads/category_image/', $filename);
             $photo = new Image;
             $photo->image = $filename;
@@ -82,7 +84,7 @@ Inserting Category into Database
                     unlink("uploads/category_image/".$imageName);
                 }
             }
-            
+
             $extension = $file->getClientOriginalExtension();
             $filename = "image_".rand(1111, 9999).'.'.$extension;
             $file->move('uploads/category_image/', $filename);
