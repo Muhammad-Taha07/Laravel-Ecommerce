@@ -10,124 +10,70 @@
     <meta name="description" content="meta description">
 
     <!-- Site title -->
-    <title>Galio - Mega Shop Responsive Bootstrap 4 Template</title>
+    <title>@yield('title')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
-    <link href="{{url('/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ url('/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font-Awesome CSS -->
-    <link href="{{url('/assets/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ url('/assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- helper class css -->
-    <link href="{{url('/assets/css/helper.min.css')}}" rel="stylesheet">
+    <link href="{{ url('/assets/css/helper.min.css') }}" rel="stylesheet">
     <!-- Plugins CSS -->
-    <link href="{{url('/assets/css/plugins.css')}}" rel="stylesheet">
+    <link href="{{ url('/assets/css/plugins.css') }}" rel="stylesheet">
     <!-- Main Style CSS -->
-    <link href="{{url('/assets/css/style.css')}}" rel="stylesheet">
-    <link href="{{url('/assets/css/skin-default.css')}}" rel="stylesheet" id="galio-skin">
+    <link href="{{ url('/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('/assets/css/skin-default.css') }}" rel="stylesheet" id="galio-skin">
 </head>
 
 <body>
 
-    <!-- color switcher start -->
-    <div class="color-switcher">
-        <div class="color-switcher-inner">
-            <div class="switcher-icon">
-                <i class="fa fa-cog fa-spin"></i>
-            </div>
-
-            <div class="switcher-panel-item">
-                <h3>Color Schemes</h3>
-                <ul class="nav flex-wrap colors">
-                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
-                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
-                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
-                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
-                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
-                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
-                </ul>
-            </div>
-
-            <div class="switcher-panel-item">
-                <h3>Layout Style</h3>
-                <ul class="nav layout-changer">
-                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
-                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
-                </ul>
-            </div>
-
-            <div class="switcher-panel-item bg">
-                <h3>Background Pattern</h3>
-                <ul class="nav flex-wrap bgbody-style bg-pattern">
-                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
-                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
-                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
-                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
-                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
-                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
-                </ul>
-            </div>
-
-            <div class="switcher-panel-item bg">
-                <h3>Background Image</h3>
-                <ul class="nav flex-wrap bgbody-style bg-img">
-                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
-                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
-                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
-                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
-                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
-                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- color switcher end -->
-
     <div class="wrapper">
-
         <!-- header area start -->
-        <header>
-            @include('users.master_layouts.header')
-        </header>
+        @include('users.master_layouts.header')
         <!-- header area end -->
 
         <!-- hero slider start -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="slider-wrapper-area">
-                        <div class="hero-slider-active hero__1 slick-dot-style hero-dot">
-                            <div class="single-slider" style="background-image: url(assets/img/slider/slider11_bg.jpg);">
-                                <div class="container p-0">
-                                    <div class="slider-main-content">
-                                        <div class="slider-content-img">
-                                            <img src="assets/img/slider/slider11_lable1.png" alt="">
-                                            <img src="assets/img/slider/slider11_lable2.png" alt="">
-                                            <img src="assets/img/slider/slider11_lable3.png" alt="">
-                                        </div>
-                                        <div class="slider-text">
-                                            <div class="slider-label">
-                                                <img src="assets/img/slider/slider11_lable4.png" alt="">
+            {{-- <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-wrapper-area">
+                            <div class="hero-slider-active hero__1 slick-dot-style hero-dot">
+                                <div class="single-slider"
+                                    style="background-image: url(assets/img/slider/slider11_bg.jpg);">
+                                    <div class="container p-0">
+                                        <div class="slider-main-content">
+                                            <div class="slider-content-img">
+                                                <img src="assets/img/slider/slider11_lable1.png" alt="">
+                                                <img src="assets/img/slider/slider11_lable2.png" alt="">
+                                                <img src="assets/img/slider/slider11_lable3.png" alt="">
                                             </div>
-                                            <h1>headphones az12</h1>
-                                            <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
+                                            <div class="slider-text">
+                                                <div class="slider-label">
+                                                    <img src="assets/img/slider/slider11_lable4.png" alt="">
+                                                </div>
+                                                <h1>headphones az12</h1>
+                                                <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="single-slider" style="background-image: url(assets/img/slider/slider12_bg.jpg);">
-                                <div class="container p-0">
-                                    <div class="slider-main-content">
-                                        <div class="slider-content-img">
-                                            <img src="assets/img/slider/slider11_lable1.png" alt="">
-                                            <img src="assets/img/slider/slider11_lable2.png" alt="">
-                                            <img src="assets/img/slider/slider11_lable3.png" alt="">
-                                        </div>
-                                        <div class="slider-text">
-                                            <div class="slider-label">
-                                                <img src="assets/img/slider/slider11_lable4.png" alt="">
+                                <div class="single-slider"
+                                    style="background-image: url(assets/img/slider/slider12_bg.jpg);">
+                                    <div class="container p-0">
+                                        <div class="slider-main-content">
+                                            <div class="slider-content-img">
+                                                <img src="assets/img/slider/slider11_lable1.png" alt="">
+                                                <img src="assets/img/slider/slider11_lable2.png" alt="">
+                                                <img src="assets/img/slider/slider11_lable3.png" alt="">
                                             </div>
-                                            <h1>samson s90</h1>
-                                            <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
+                                            <div class="slider-text">
+                                                <div class="slider-label">
+                                                    <img src="assets/img/slider/slider11_lable4.png" alt="">
+                                                </div>
+                                                <h1>samson s90</h1>
+                                                <p>Typi Non Habent Claritatem Insitam; Est Usus Legentis</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -135,12 +81,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> --}}
         <!-- hero slider end -->
 
         <!-- home banner area start -->
-        <div class="banner-area mt-30">
+        {{-- <div class="banner-area mt-30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-6 order-1">
@@ -171,11 +116,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- home banner area end -->
 
         <!-- page wrapper start -->
-        <div class="page-wrapper pt-6 pb-28 pb-md-6 pb-sm-6 pt-xs-36">
+        {{-- <div class="page-wrapper pt-6 pb-28 pb-md-6 pb-sm-6 pt-xs-36">
             <div class="container">
                 <div class="row">
                     <!-- start home sidebar -->
@@ -192,22 +137,24 @@
                                     <div class="product-item fix">
                                         <div class="product-thumb">
                                             <a href="product-details.html">
-                                                <img src="assets/img/product/product-img7.jpg" class="img-pri" alt="">
-                                                <img src="assets/img/product/product-img13.jpg" class="img-sec" alt="">
+                                                <img src="assets/img/product/product-img7.jpg" class="img-pri"
+                                                    alt="">
+                                                <img src="assets/img/product/product-img13.jpg" class="img-sec"
+                                                    alt="">
                                             </a>
                                             <div class="product-label">
                                                 <span>hot</span>
                                             </div>
                                             <div class="product-action-link">
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                            class="fa fa-search"></i></span> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                        class="fa fa-heart-o"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                        class="fa fa-refresh"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#quick_view">
+                                                    <span data-toggle="tooltip" data-placement="left"
+                                                        title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Compare"><i class="fa fa-refresh"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">
@@ -232,22 +179,24 @@
                                     <div class="product-item fix">
                                         <div class="product-thumb">
                                             <a href="product-details.html">
-                                                <img src="assets/img/product/product-img3.jpg" class="img-pri" alt="">
-                                                <img src="assets/img/product/product-img4.jpg" class="img-sec" alt="">
+                                                <img src="assets/img/product/product-img3.jpg" class="img-pri"
+                                                    alt="">
+                                                <img src="assets/img/product/product-img4.jpg" class="img-sec"
+                                                    alt="">
                                             </a>
                                             <div class="product-label">
                                                 <span>hot</span>
                                             </div>
                                             <div class="product-action-link">
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                            class="fa fa-search"></i></span> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                        class="fa fa-heart-o"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                        class="fa fa-refresh"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#quick_view">
+                                                    <span data-toggle="tooltip" data-placement="left"
+                                                        title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Compare"><i class="fa fa-refresh"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">
@@ -272,22 +221,24 @@
                                     <div class="product-item fix">
                                         <div class="product-thumb">
                                             <a href="product-details.html">
-                                                <img src="assets/img/product/product-img5.jpg" class="img-pri" alt="">
-                                                <img src="assets/img/product/product-img1.jpg" class="img-sec" alt="">
+                                                <img src="assets/img/product/product-img5.jpg" class="img-pri"
+                                                    alt="">
+                                                <img src="assets/img/product/product-img1.jpg" class="img-sec"
+                                                    alt="">
                                             </a>
                                             <div class="product-label">
                                                 <span>hot</span>
                                             </div>
                                             <div class="product-action-link">
-                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                            class="fa fa-search"></i></span> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                        class="fa fa-heart-o"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                        class="fa fa-refresh"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#quick_view">
+                                                    <span data-toggle="tooltip" data-placement="left"
+                                                        title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Compare"><i class="fa fa-refresh"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">
@@ -586,7 +537,8 @@
                                             <p>Curabitur sed diam enim. Sed varius faucibus lectus, a scelerisque massa
                                                 posuere ac. Quisque dapibus, est ac...</p>
                                         </div>
-                                        <a href="blog-details.html">read more <i class="fa fa-long-arrow-right"></i></a>
+                                        <a href="blog-details.html">read more <i
+                                                class="fa fa-long-arrow-right"></i></a>
                                     </div> <!-- end single blog item -->
                                     <div class="blog-item">
                                         <div class="blog-thumb img-full fix">
@@ -603,7 +555,8 @@
                                             <p>Curabitur sed diam enim. Sed varius faucibus lectus, a scelerisque massa
                                                 posuere ac. Quisque dapibus, est ac...</p>
                                         </div>
-                                        <a href="blog-details.html">read more <i class="fa fa-long-arrow-right"></i></a>
+                                        <a href="blog-details.html">read more <i
+                                                class="fa fa-long-arrow-right"></i></a>
                                     </div> <!-- end single blog item -->
                                 </div>
                                 <!-- blog wrapper end -->
@@ -672,8 +625,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img1.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img2.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img1.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img2.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>hot</span>
@@ -682,12 +637,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -712,8 +667,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img3.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img4.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img3.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img4.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>hot</span>
@@ -722,12 +679,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -752,8 +709,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img5.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img6.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img5.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img6.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>hot</span>
@@ -762,12 +721,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -792,8 +751,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img7.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img8.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img7.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img8.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>hot</span>
@@ -802,12 +763,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -832,8 +793,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img9.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img10.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img9.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img10.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>hot</span>
@@ -842,12 +805,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -872,8 +835,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img11.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img12.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img11.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img12.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>hot</span>
@@ -882,12 +847,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -937,8 +902,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img1.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img2.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img1.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img2.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>new</span>
@@ -947,12 +914,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -977,8 +944,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img3.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img4.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img3.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img4.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>new</span>
@@ -987,12 +956,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -1017,8 +986,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img5.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img6.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img5.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img6.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>new</span>
@@ -1027,12 +998,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -1057,8 +1028,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img7.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img8.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img7.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img8.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>new</span>
@@ -1067,12 +1040,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -1097,8 +1070,10 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img9.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img10.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img9.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img10.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>new</span>
@@ -1107,12 +1082,12 @@
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
                                                     data-toggle="tooltip" data-placement="left" title="Quick view"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -1137,22 +1112,24 @@
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="assets/img/product/product-img11.jpg" class="img-pri" alt="">
-                                            <img src="assets/img/product/product-img12.jpg" class="img-sec" alt="">
+                                            <img src="assets/img/product/product-img11.jpg" class="img-pri"
+                                                alt="">
+                                            <img src="assets/img/product/product-img12.jpg" class="img-sec"
+                                                alt="">
                                         </a>
                                         <div class="product-label">
                                             <span>new</span>
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
-                                                        class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
-                                                    class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
-                                                    class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
-                                                    class="fa fa-shopping-cart"></i></a>
+                                                    data-toggle="tooltip" data-placement="left"
+                                                    title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left"
+                                                title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -1214,7 +1191,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img1.jpg" alt="">
+                                                            <img src="assets/img/product/product-img1.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1244,7 +1222,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img2.jpg" alt="">
+                                                            <img src="assets/img/product/product-img2.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1274,7 +1253,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img3.jpg" alt="">
+                                                            <img src="assets/img/product/product-img3.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1304,7 +1284,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img4.jpg" alt="">
+                                                            <img src="assets/img/product/product-img4.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1334,7 +1315,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img5.jpg" alt="">
+                                                            <img src="assets/img/product/product-img5.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1364,7 +1346,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img6.jpg" alt="">
+                                                            <img src="assets/img/product/product-img6.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1394,7 +1377,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img7.jpg" alt="">
+                                                            <img src="assets/img/product/product-img7.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1424,7 +1408,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img8.jpg" alt="">
+                                                            <img src="assets/img/product/product-img8.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1466,7 +1451,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img14.jpg" alt="">
+                                                            <img src="assets/img/product/product-img14.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1496,7 +1482,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img13.jpg" alt="">
+                                                            <img src="assets/img/product/product-img13.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1526,7 +1513,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img12.jpg" alt="">
+                                                            <img src="assets/img/product/product-img12.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1556,7 +1544,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img10.jpg" alt="">
+                                                            <img src="assets/img/product/product-img10.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1586,7 +1575,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img9.jpg" alt="">
+                                                            <img src="assets/img/product/product-img9.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1616,7 +1606,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img8.jpg" alt="">
+                                                            <img src="assets/img/product/product-img8.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1646,7 +1637,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img6.jpg" alt="">
+                                                            <img src="assets/img/product/product-img6.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1676,7 +1668,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img5.jpg" alt="">
+                                                            <img src="assets/img/product/product-img5.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1718,7 +1711,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img6.jpg" alt="">
+                                                            <img src="assets/img/product/product-img6.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1748,7 +1742,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img15.jpg" alt="">
+                                                            <img src="assets/img/product/product-img15.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1778,7 +1773,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img11.jpg" alt="">
+                                                            <img src="assets/img/product/product-img11.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1808,7 +1804,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img16.jpg" alt="">
+                                                            <img src="assets/img/product/product-img16.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1838,7 +1835,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img15.jpg" alt="">
+                                                            <img src="assets/img/product/product-img15.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1868,7 +1866,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img1.jpg" alt="">
+                                                            <img src="assets/img/product/product-img1.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1898,7 +1897,8 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img13.jpg" alt="">
+                                                            <img src="assets/img/product/product-img13.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
@@ -1928,11 +1928,13 @@
                                                 <div class="category-item">
                                                     <div class="category-thumb">
                                                         <a href="product-details.html">
-                                                            <img src="assets/img/product/product-img3.jpg" alt="">
+                                                            <img src="assets/img/product/product-img3.jpg"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                     <div class="category-content">
-                                                        <h4><a href="product-details.html">variable Product 01</a></h4>
+                                                        <h4><a href="product-details.html">variable Product 01</a>
+                                                        </h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
                                                                 $70.00
@@ -1964,11 +1966,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- page wrapper end -->
 
         <!-- latest product start -->
-        <div class="latest-product">
+        {{-- <div class="latest-product">
             <div class="container">
                 <div class="section-title mb-30">
                     <div class="title-icon">
@@ -1989,12 +1991,16 @@
                                 <span>hot</span>
                             </div>
                             <div class="product-action-link">
-                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                            class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                        class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
@@ -2026,12 +2032,16 @@
                                 <span>hot</span>
                             </div>
                             <div class="product-action-link">
-                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                            class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                        class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
@@ -2063,12 +2073,16 @@
                                 <span>hot</span>
                             </div>
                             <div class="product-action-link">
-                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                            class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                        class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
@@ -2100,12 +2114,16 @@
                                 <span>hot</span>
                             </div>
                             <div class="product-action-link">
-                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                            class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                        class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
@@ -2137,12 +2155,16 @@
                                 <span>hot</span>
                             </div>
                             <div class="product-action-link">
-                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                            class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                        class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
@@ -2174,12 +2196,16 @@
                                 <span>hot</span>
                             </div>
                             <div class="product-action-link">
-                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                            class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                        class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left"
+                                    title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
@@ -2203,51 +2229,13 @@
                 </div>
                 <!-- featured category end -->
             </div>
-        </div>
+        </div> --}}
         <!-- latest product end -->
 
+    @yield('content')
+
         <!-- brand area start -->
-        <div class="brand-area pt-28 pb-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title mb-30">
-                            <div class="title-icon">
-                                <i class="fa fa-crop"></i>
-                            </div>
-                            <h3>Popular Brand</h3>
-                        </div> <!-- section title end -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="brand-active slick-padding slick-arrow-style">
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br1.png" alt=""></a>
-                            </div>
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br2.png" alt=""></a>
-                            </div>
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br3.png" alt=""></a>
-                            </div>
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
-                            </div>
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br5.png" alt=""></a>
-                            </div>
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br6.png" alt=""></a>
-                            </div>
-                            <div class="brand-item text-center">
-                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('users.master_layouts.popular_brand')
         <!-- brand area end -->
 
         <!-- footer area start -->
@@ -2287,16 +2275,21 @@
                                     </div>
                                 </div>
                                 <div class="pro-nav slick-padding2 slick-arrow-style_2">
-                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img1.jpg"
-                                            alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img2.jpg"
-                                            alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img3.jpg"
-                                            alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img4.jpg"
-                                            alt="" /></div>
-                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img5.jpg"
-                                            alt="" /></div>
+                                    <div class="pro-nav-thumb"><img
+                                            src="assets/img/product/product-details-img1.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-nav-thumb"><img
+                                            src="assets/img/product/product-details-img2.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-nav-thumb"><img
+                                            src="assets/img/product/product-details-img3.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-nav-thumb"><img
+                                            src="assets/img/product/product-details-img4.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-nav-thumb"><img
+                                            src="assets/img/product/product-details-img5.jpg" alt="" />
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-7">
@@ -2329,7 +2322,8 @@
                                             <div class="pro-qty"><input type="text" value="1"></div>
                                         </div>
                                         <div class="action_link">
-                                            <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i>
+                                            <a class="buy-btn" href="#">add to cart<i
+                                                    class="fa fa-shopping-cart"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -2353,21 +2347,21 @@
 
 
     <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
-    <script src="{{url('/assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{ url('/assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
     <!-- Jquery Min Js -->
-    <script src="{{url('/assets/js/vendor/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{ url('/assets/js/vendor/jquery-3.3.1.min.js') }}"></script>
     <!-- Popper Min Js -->
-    <script src="{{url('/assets/js/vendor/popper.min.js')}}"></script>
+    <script src="{{ url('/assets/js/vendor/popper.min.js') }}"></script>
     <!-- Bootstrap Min Js -->
-    <script src="{{url('/assets/js/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ url('/assets/js/vendor/bootstrap.min.js') }}"></script>
     <!-- Plugins Js-->
-    <script src="{{url('/assets/js/plugins.js')}}"></script>
+    <script src="{{ url('/assets/js/plugins.js') }}"></script>
     <!-- Ajax Mail Js -->
-    <script src="{{url('assets/js/ajax-mail.js')}}"></script>
+    <script src="{{ url('assets/js/ajax-mail.js') }}"></script>
     <!-- Active Js -->
-    <script src="{{url('/assets/js/main.js')}}"></script>
+    <script src="{{ url('/assets/js/main.js') }}"></script>
     <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
-    <script src="{{url('/assets/js/switcher.js')}}"></script>
+    <script src="{{ url('/assets/js/switcher.js') }}"></script>
 </body>
 
 

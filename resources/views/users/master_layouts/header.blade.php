@@ -1,4 +1,5 @@
 <!-- header top start -->
+<header>
 <div class="header-top-area bg-gray text-center text-md-left">
     <div class="container">
         <div class="row">
@@ -396,4 +397,5 @@
         </div>
     </div>
 </div>
+</header>
 <!-- main menu area end -->
