@@ -1,4 +1,5 @@
 @extends('layouts.admin_layout.admin_layout')
+@section('title', 'Categories')
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
