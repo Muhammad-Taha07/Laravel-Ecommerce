@@ -166,6 +166,7 @@
                             </div>
                         </div>
                         <nav class="category-menu hm-1">
+                        {{-- <nav class="category-menu category-style-2"> --}}
                             <ul>
                                 <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-desktop"></i>
                                         computer</a></li>
