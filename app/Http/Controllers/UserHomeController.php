@@ -9,7 +9,7 @@ class UserHomeController extends Controller
 {
 
     public function index()
-    {
+    { /* need Fixing here */
         $products = Product::latest()->take(5)->get();
         foreach($products as $product)
         {
