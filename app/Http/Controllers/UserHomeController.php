@@ -11,20 +11,19 @@ class UserHomeController extends Controller
     public function index()
     {
         $products = Product::latest()->take(5)->get();
-        // return $products->productImage;
-        // foreach($products as $product)
-        // {
-        // echo $product->productImage[0]->image;
-        // }
-        // dd($products->toArray());
+        foreach($products as $product)
+        {
+        $product->productImage[0]->image;
+        }
         // if($products->toArray())
         // {
-        //     dd('data ha ');
+        //     dd('data found');
+        //     // echo $products;
         // }
-        // dd('nhi');
-        return view('users.homepage', [
-            'products' => $products
-        ]);
+        // else{
+        //     dd('data not found');
+        // }
+        return view('users.homepage', ['products' => $products]);
     }
 
 }

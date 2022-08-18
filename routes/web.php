@@ -17,18 +17,19 @@ use App\Http\Controllers\ConfigController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    /* Customer Section Start */
+/* Customer Section Start */
     Route::get('/', [UserHomeController::class, 'index']);
-    /* Customer Section End */
+/* Customer Section End */
 
 Auth::routes(['register' => false]);
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
-    /* Admin Control */
+/* Admin Control */
     Route::prefix('/admin')->namespace('Admin')->group(function(){
         });
-        /* Category Routes */
+
+/* Category Routes */
     Route::prefix('category')->group(function () {
         // Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
         Route::get('/view', [CategoryController::class,'fetchCategories'])->name('View_category');
@@ -38,6 +39,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('edit-category/{category}', [CategoryController::class, 'updateCategory']);
         Route::get('/deletecategory/{category}', [CategoryController::class, 'deleteCategory'])->name('delete-category');
     });
+    
+/* Product Routes */
     Route::prefix('product')->group(function() {
         Route::get('/viewProduct',[ProductController::class,'productIndex'])->name('view-product');
         Route::get('/add-product', [ProductController::class,'AddProductForm'])->name('Add-Product-form');
