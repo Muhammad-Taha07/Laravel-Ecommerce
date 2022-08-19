@@ -165,8 +165,11 @@
                                 <i class="fa fa-angle-down"></i>
                             </div>
                         </div>
+                        @if (request()->routeIs('user.home'))
                         <nav class="category-menu hm-1">
-                        {{-- <nav class="category-menu category-style-2"> --}}
+                        @else
+                        <nav class="category-menu category-style-2">
+                        @endif
                             <ul>
                                 <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-desktop"></i>
                                         computer</a></li>
