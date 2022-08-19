@@ -18,7 +18,7 @@ use App\Http\Controllers\ConfigController;
 |
 */
 /* Customer Section Start */
-    Route::get('/', [UserHomeController::class, 'index']);
+    Route::get('/', [UserHomeController::class, 'index'])->name('user.home');   
 /* Customer Section End */
 
 Auth::routes(['register' => false]);
@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('edit-category/{category}', [CategoryController::class, 'updateCategory']);
         Route::get('/deletecategory/{category}', [CategoryController::class, 'deleteCategory'])->name('delete-category');
     });
-    
+
 /* Product Routes */
     Route::prefix('product')->group(function() {
         Route::get('/viewProduct',[ProductController::class,'productIndex'])->name('view-product');
