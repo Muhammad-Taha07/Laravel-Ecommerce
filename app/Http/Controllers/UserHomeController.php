@@ -11,14 +11,14 @@ class UserHomeController extends Controller
     public function index()
     { /* need Fixing here */
         $products = Product::latest()->take(5)->get();
-        foreach($products as $product)
-        {
-        $product->productImage[0]->image;
-        }
-        // if($products->toArray())
+        // foreach($products as $product)
         // {
-        //     dd('data found');
-        //     // echo $products;
+        // $product->productImage[0]->image;
+        // }
+        // if($product->toArray())
+        // {
+        //     // dd($products);
+        //     dd();
         // }
         // else{
         //     dd('data not found');
