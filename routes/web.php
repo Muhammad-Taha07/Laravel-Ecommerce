@@ -18,16 +18,16 @@ use App\Http\Controllers\ConfigController;
 |
 */
 /* Customer Section Start */
-    Route::get('/', [UserHomeController::class, 'index'])->name('user.home');   
+    Route::get('/', [UserHomeController::class, 'index'])->name('user.home');
 /* Customer Section End */
 
-Auth::routes(['register' => false]);
-Route::middleware(['auth'])->group(function () {
+    Auth::routes(['register' => true]);
+    Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
-/* Admin Control */
+/* Admin Control-Panel Routes*/
     Route::prefix('/admin')->namespace('Admin')->group(function(){
-        });
+    });
 
 /* Category Routes */
     Route::prefix('category')->group(function () {
