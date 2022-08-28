@@ -1,6 +1,17 @@
 @extends('layouts.admin_layout.admin_layout')
 @section('title','Add Product')
 @section('content')
+{{-- @if ($errors->any())
+<div>
+    <ul>
+        @foreach ($errors->any() as $err)
+        <li>
+            {{$err}}
+        </li>
+        @endforeach
+    </ul>
+</div>
+@endif --}}
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -45,6 +56,9 @@
                             <option value="{{$data->id}}">{{$data->category_name}}</option>
                             @endforeach
                         </select>
+                      @error('category_id')
+                      <p style="color:red">{{$message}}</p>
+                      @enderror
                     </div>
                 </div>
 
@@ -65,7 +79,7 @@
                     <div class="form-group">
                         <label for="roles">Stocks:</label>
                         <input type="number" placeholder="Enter Stocks" name="stock" value="{{old('purchase_stocks')}}" class="form-control">
-                        @error('product_stocks')
+                        @error('stock')
                         <p style="color:red">{{$message}}</p>
                         @enderror
                     </div>
@@ -80,9 +94,6 @@
                           <label class="custom-file-label" for="image">Upload Product Image</label>
                       </div>
                     </div>
-                          @error('category_image')
-                          <p style="color:red">{{$message}}</p>
-                          @enderror
                     </div>
                 </div>
 
@@ -95,7 +106,7 @@
                         </div>
                         <input type="text" placeholder="Enter Product Price" name="price" value="{{old('product_price')}}" class="form-control">
                     </div>
-                    @error('product_price')
+                    @error('price')
                     <p style="color:red">{{$message}}</p>
                     @enderror
                 </div>

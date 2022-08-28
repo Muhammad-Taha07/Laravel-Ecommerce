@@ -25,6 +25,7 @@ class ProductValidation extends FormRequest
     {
         $rules =
         [
+            'category_id' => 'required',
             'product_name' => 'required',
             'stock' => 'required|numeric',
             'price' => 'required|numeric'
@@ -36,6 +37,7 @@ class ProductValidation extends FormRequest
     {
         $messages =
         [
+            'category_id.required' => 'Category selection is must required.',
             'product_name.required'   => 'Required Fields cannot be left empty',
             'price.required'  => 'Required Fields cannot be left empty',
             'price.numeric'   => 'Required Fields can only be numeric',
