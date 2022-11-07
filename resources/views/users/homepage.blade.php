@@ -1902,7 +1902,7 @@
                         <div class="product-thumb">
                             <a href="product-details.html">
                                 {{-- {{$product->productImage[0]->image}} --}}
-                                <img src="{{asset('uploads/product_image/'. $product->productImage[0]->image)}}" class="img-pri" alt="">
+                                {{-- <img src="{{asset('uploads/product_image/'. $product->productImage[0]->image)}}" class="img-pri" alt=""> --}}
                                 {{-- <img src="assets/img/product/product-img2.jpg" class="img-sec" alt=""> --}}
                             </a>
                             <div class="product-label">

@@ -10,7 +10,8 @@ class UserHomeController extends Controller
 
     public function index()
     { /* need Fixing here */
-        $products = Product::latest()->take(5)->get();
+        // $products = Product::latest()->take(5)->get();
+        $products = Product::all();
         // foreach($products as $product)
         // {
         // $product->productImage[0]->image;
