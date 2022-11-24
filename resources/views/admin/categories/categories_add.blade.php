@@ -30,10 +30,9 @@
              </div>
              </div>
             <!-- /.card-header -->
-            <form action="submit" method="POST" enctype="multipart/form-data">
+            <form action="{{route("create-category")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-
 
                     <div class="col-md-6">
                         <label>Category Name</label>

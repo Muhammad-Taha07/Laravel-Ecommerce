@@ -30,7 +30,7 @@ Inserting Category into Database
         return view('admin.categories.categories', ['data' => $data]);
     }
 
-    public function AddCategoryIndex()
+    public function addCategoryView()
     {
         return view('admin.categories.categories_add');
     }
@@ -38,7 +38,7 @@ Inserting Category into Database
     public function InsertCategory(Request $request, Category $category)
     {
         $category->category_name = $request->input('category_name');
-        $category->category_description = $request->input('category_name');
+        $category->category_description = $request->input('category_description');
         $category->save();
 
         if($request->hasFile('category_image'))
@@ -55,17 +55,17 @@ Inserting Category into Database
             $category->images()->save($photo);
         }
         $request->session('status')->flash('status', 'Category Added Successfully');
-        return redirect('/category/view');
+        return redirect('/admin/category/view');
     }
 
 /* Updating Categories Method */
     public function editCategory($id)
     {
         $category = Category::find($id);
-        if($category)
-        {
-            return view('admin.categories.categories_edit',['category'=>$category]);
-        }
+            if($category)
+            {
+                return view('admin.categories.categories_edit',['category'=>$category]);
+            }
     }
 
     public function updateCategory(Request $request, Category $category)
@@ -84,7 +84,6 @@ Inserting Category into Database
                     unlink("uploads/category_image/".$imageName);
                 }
             }
-
             $extension = $file->getClientOriginalExtension();
             $filename = "image_".rand(1111, 9999).'.'.$extension;
             $file->move('uploads/category_image/', $filename);
@@ -95,13 +94,13 @@ Inserting Category into Database
         }
         $category->update($request->all());
         Session::flash('status', 'Category Updated Successfully');
-        return redirect('/category/view');
+        return redirect('/admin/category/view');
     }
 
     public function deleteCategory(Category $category)
     {
         $category->delete();
         Session::flash('status', 'Category Deleted Successfully');
-        return redirect('/category/view');
+        return redirect('/admin/category/view');
     }
 }

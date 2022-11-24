@@ -33,8 +33,8 @@ use App\Http\Controllers\ConfigController;
 Route::prefix('category')->group(function () {
     // Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
     Route::get('/view', [CategoryController::class,'fetchCategories'])->name('View_category');
-    Route::get('/add', [CategoryController::class, 'AddCategoryIndex'])->name('add-category');
-    Route::post('/submit', [CategoryController::class, 'InsertCategory']);
+    Route::get('/add', [CategoryController::class, 'addCategoryView'])->name('add-category');
+    Route::post('/submit', [CategoryController::class, 'InsertCategory'])->name('create-category');
     Route::get('/categoryedit/{id}', [CategoryController::class, 'editCategory'])->name('edit-category');
     Route::post('edit-category/{category}', [CategoryController::class, 'updateCategory']);
     Route::get('/deletecategory/{category}', [CategoryController::class, 'deleteCategory'])->name('delete-category');
