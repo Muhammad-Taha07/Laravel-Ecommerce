@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\Brand;
 
 class Product extends Model
 {
@@ -17,7 +18,6 @@ class Product extends Model
     }
 
     /* Image Modelling - Polyorphic Relationship */
-
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
@@ -26,5 +26,10 @@ class Product extends Model
     public function productImage()
     {
         return $this->morphMany(Image::class, 'imageable')->where('type', 'Master');
+    }
+    /* Relationship with Products (ONE-TO-MANY) */
+    public function brands()
+    {
+        return $this->belongsTo(Brand::class);
     }
 }
