@@ -25,11 +25,39 @@
                 data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="/" class="nav-link">
+                    <a href="/admin/home" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie" aria-hidden="true"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
+
+                {{-- BRAND SECTION --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Brands
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('View_category') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Brands</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add-category') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add a New Brand</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- BRAND SECTION END--}}
+
+                {{-- CATEGORIES - SECTION --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -53,6 +81,9 @@
                         </li>
                     </ul>
                 </li>
+                {{-- CATEGORIES - SECTION END --}}
+
+                {{-- PRODUCTS - SECTION --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -71,9 +102,9 @@
                                 <p>Add a Product</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
+                {{-- PRODUCTS - SECTION END --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

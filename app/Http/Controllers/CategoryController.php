@@ -15,11 +15,11 @@ class CategoryController extends Controller
 /*
 Viewing Category Page
 */
-    public function index()
-    {
-        $data = Category::all();
-        return view('admin.categories.categories', ['data'=>$data]);
-    }
+    // public function index()
+    // {
+    //     $data = Category::all();
+    //     return view('admin.categories.categories', ['data'=>$data]);
+    // }
 
 /*
 Inserting Category into Database

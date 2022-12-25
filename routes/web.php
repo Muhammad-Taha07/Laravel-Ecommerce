@@ -18,18 +18,20 @@ use App\Http\Controllers\ConfigController;
 |
 */
 
-/* Customer Section Start */
+/* CUSTOMER - SECTION */
     Route::get('/', [UserHomeController::class, 'index'])->name('user.home');
-/* Customer Section End */
+/* CUSTOMER - SECTION */
 
     Auth::routes(['register' => true]);
     Route::middleware(['auth'])->group(function () {
 
-/* Admin Control-Panel Routes*/
+/* ADMIN CONTROL-PANEL ROUTES */
     Route::prefix('/admin')->namespace('Admin')->group(function(){
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-/* Category Routes */
+/* BRAND - ROUTES */
+
+/* CATEGORY - ROUTES */
 Route::prefix('category')->group(function () {
     // Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
     Route::get('/view', [CategoryController::class,'fetchCategories'])->name('View_category');
@@ -40,7 +42,7 @@ Route::prefix('category')->group(function () {
     Route::get('/deletecategory/{category}', [CategoryController::class, 'deleteCategory'])->name('delete-category');
 });
 
-/* Product Routes */
+/* PRODUCT - ROUTES */
 Route::prefix('product')->group(function() {
     Route::get('/viewProduct',[ProductController::class,'productIndex'])->name('view-product');
     Route::get('/add-product', [ProductController::class,'AddProductForm'])->name('Add-Product-form');
