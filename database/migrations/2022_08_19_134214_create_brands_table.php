@@ -15,7 +15,6 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
             $table->string('brand_name');
             $table->string('brand_description');
             $table->softDeletes();
