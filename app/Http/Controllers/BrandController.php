@@ -12,7 +12,7 @@ class BrandController extends Controller
     public function fetchBrands()
     {
         $data = Brand::all();
-        return view('admin.brands.brand', ['brand' => $brand]);
+        return view('admin.brands.brand', ['brand' => $data]);
     }
 
     /* ADD A NEW BRAND PAGE */
