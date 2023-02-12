@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserHomeController;
@@ -34,7 +35,7 @@ Route::prefix('brand')->group(function () {
     Route::get('/view', [BrandController::class, 'fetchBrands'])->name('view_brand');
     Route::get('/addBrand', [BrandController::class, 'addBrandView'])->name('add-brand');
     Route::post('/submit', [BrandController::class, 'createBrand'])->name('create-brand');
-    
+
 });
 /* CATEGORY - ROUTES */
 Route::prefix('category')->group(function () {
