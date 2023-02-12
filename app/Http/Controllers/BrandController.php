@@ -15,6 +15,12 @@ class BrandController extends Controller
         return view('admin.brands.brand', ['brand' => $brand]);
     }
 
+    /* ADD A NEW BRAND PAGE */
+    public function addBrandView()
+    {
+        return view('admin.brands.brand_add');
+    }
+
     /* CREATING BRAND FUNCTION */
     public function createBrand(BrandRequest $request)
     {
