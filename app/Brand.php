@@ -15,6 +15,12 @@ class Brand extends Model
         return $createBrand ? $createBrand :  array();
     }
 
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable')->where('type', 'Master');
+    }
+
+
     
 
     
