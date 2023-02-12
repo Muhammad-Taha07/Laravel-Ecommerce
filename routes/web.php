@@ -30,7 +30,11 @@ use App\Http\Controllers\ConfigController;
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /* BRAND - ROUTES */
+Route::prefix('brand')->group(function () {
+    Route::get('/view', [BrandController::class, 'fetchBrands'])->name('view_brand');
+    Route::get('/addBrand', [BrandController::class, 'addBrandView'])->name('add-brand');
 
+});
 /* CATEGORY - ROUTES */
 Route::prefix('category')->group(function () {
     // Route::get('/view', 'CategoryController@fetchCategories')->name('View_category');
