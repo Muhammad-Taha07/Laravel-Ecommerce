@@ -42,13 +42,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('View_category') }}" class="nav-link">
+                            <a href="{{ route('view_brand') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Brands</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add-category') }}" class="nav-link">
+                            <a href="{{ route('add-brand') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add a New Brand</p>
                             </a>
