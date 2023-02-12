@@ -26,7 +26,8 @@ class BrandRequest extends FormRequest
     {
         return [
             'brand_name'        => 'required|min:3|max:20',
-            'brand_description' => 'required|min:15|max:30'
+            'brand_description' => 'required|min:15|max:30',
+            'brand_images'      => 'image|mimes:jpeg,png,jpg'
         ];
     }
     
