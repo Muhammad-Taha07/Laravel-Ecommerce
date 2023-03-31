@@ -12,7 +12,9 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+
+        $categories = [
+        [
             'category_name'     =>      'Electronics',
             'description'       =>      'All the Electronic related brands shall be listed in this Category.'
         ],
@@ -27,6 +29,7 @@ class CategorySeeder extends Seeder
         [
             'category_name'     =>      'Women Clothing',
             'description'       =>      'Women Related Clothing, Apparels, Bottoms, Footwears and all shall be listed in this Category.'
-        ]);
+        ]];
+        DB::table('categories')->insert($categories);
     }
 }

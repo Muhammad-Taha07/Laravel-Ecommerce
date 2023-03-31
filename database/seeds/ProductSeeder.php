@@ -13,7 +13,8 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
+        $products = [
+        [
         /* Clothing Category Seeders */
             'category_id'       =>      1,
             'brand_id'          =>      1,
@@ -103,6 +104,7 @@ class ProductSeeder extends Seeder
             'description'       =>      'Sofa Set for Home.',
             'price'             =>      rand(15000, 50000),
             'stock'             =>      rand(50, 350)
-        ]);
+        ]];
+        DB::table('products')->insert($products);
     }
 }

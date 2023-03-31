@@ -12,7 +12,8 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('brands')->insert([
+        $brands =[
+        [
             'brand_name'        =>      'Nike',
             'brand_description' =>      'Nike Pakistan | T-shirts, Torso, Bottom Wears'
         ],
@@ -51,6 +52,7 @@ class BrandSeeder extends Seeder
         [
             'brand_name'        =>      'Habitt',
             'brand_description' =>      'Habitt Home Decor & Furniture for Workspace and Home'
-        ]);
+        ]];
+        DB::table('brands')->insert($brands);
     }
 }
