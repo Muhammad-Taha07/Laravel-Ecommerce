@@ -37,6 +37,11 @@
                     <div class="col-md-6">
                         <label>Brand Name</label>
                         <input style="margin-bottom: 1%" type="text" name="brand_name" class="form-control" id="brand_n" placeholder="Enter Brand Name">
+                        <span class="text-danger">
+                            @error('brand_name')
+                            <ul><li><strong>{{$message}}</strong></li></ul>
+                            @enderror
+                        </span>
                     </div>
 
                     <div class="col-md-6">
@@ -48,14 +53,16 @@
                               <label class="custom-file-label" for="brand_image">Brand Image</label>
                             </div>
                         </div>
-                          @error('brand_image')
-                          <p style="color:red">{{$message}}</p>
-                          @enderror
                         </div>
                       </div>
 
                     <label>Brand Description</label>
                     <input style="margin-bottom: 1%" type="text" name="brand_description" class="form-control" id="brand_d" placeholder="Enter Brand Description">
+                    <span class="text-danger">
+                        @error('brand_description')
+                        <ul><li><strong>{{$message}}</strong></li></ul>
+                        @enderror
+                    </span>
                     <button type="submit" name="btnSubmit" class="btn btn-primary float-right">Submit</button>
                       </div>
                     </div>
