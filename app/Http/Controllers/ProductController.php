@@ -58,7 +58,7 @@ class ProductController extends Controller
             return view('admin.products.products_edit', ['product' => $product, 'dropdown' => $dropdown]);
         }
     }
-// 
+    
     public function updateProduct(Product $product, Request $request)
     {
         if($request->hasFile('product_image'))
