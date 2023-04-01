@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Brand;
 use App\Image;
+use App\Http\Requests\BrandRequest;
 
 
 class BrandController extends Controller
@@ -12,7 +13,7 @@ class BrandController extends Controller
     public function fetchBrands()
     {
         $data = Brand::all();
-        return view('admin.brands.brand', ['brand' => $data]);
+        return view('admin.brands.brand', ['data' => $data]);
     }
 
     /* ADD A NEW BRAND PAGE */
@@ -34,20 +35,22 @@ class BrandController extends Controller
         {
             $time             = time();
             $file             = $request->file('brand_image');
-            $image_extension  = $image->getClientOriginalExtension();
-            $filename         = 'Image' . '_' . $time . $image_extension;
-            $imageType        = $request->type;
+            $image_extension  = $file->getClientOriginalExtension();
+            $filename         = 'Image' . '_' . $time . '.' . $image_extension;
             $photo->image     = $filename;
-            $file->move('uploads/brand_image');
-            
-            if($imageType == 'Master')
-            {
-                $photo->type = $imageType;
-                $brand->images()->save($photo);
-            }
+            $photo->type      = "Master";
+            $file->move('uploads/brand_image', $filename);
+            $createBrand->images()->save($photo);
+        }
+        else
+        {
+            $filename     = env('NO_IMAGE');
+            $photo->image = $filename;
+            $photo->type  = "Master";
+            $createBrand->images()->save($photo);
         }
         $request->session('status')->flash('status', 'Brand Added Successfully');
-        return redirect('/admin/brands/viewBrand');
+        return redirect('/admin/brand/view');
     }
 
 }
