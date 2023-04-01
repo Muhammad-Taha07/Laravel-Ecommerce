@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Image;
 
 class Brand extends Model
 {
@@ -17,12 +18,7 @@ class Brand extends Model
 
     public function images()
     {
-        return $this->morphMany(Image::class, 'imageable')->where('type', 'Master');
+        return $this->morphMany(Image::class, 'imageable');
     }
-
-
-    
-
-    
 
 }
