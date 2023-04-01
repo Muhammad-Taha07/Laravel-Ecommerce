@@ -12,10 +12,12 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
+        $current_time = now();
         $brands =[
         [
             'brand_name'        =>      'Nike',
-            'brand_description' =>      'Nike Pakistan | T-shirts, Torso, Bottom Wears'
+            'brand_description' =>      'Nike Pakistan | T-shirts, Torso, Bottom Wears',
+            'created_at'        =>      $current_time
         ],
         [
             'brand_name'        =>      'Outfitters',
