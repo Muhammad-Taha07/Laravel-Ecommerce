@@ -29,7 +29,7 @@
             </button>
              </div>
              </div>
-            <!-- /.card-header -->  
+            <!-- /.card-header -->
             <form action="{{route("create-brand")}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
@@ -44,7 +44,7 @@
                           <label>Brand Image</label>
                           <div class="input-group">
                               <div class="custom-file">
-                                  <input type="file" class="custom-file-input" name="brand_image" id="brand_image">
+                                  <input type="file" class="custom-file-input" name="brand_image" id="brand_n">
                               <label class="custom-file-label" for="brand_image">Brand Image</label>
                             </div>
                         </div>
