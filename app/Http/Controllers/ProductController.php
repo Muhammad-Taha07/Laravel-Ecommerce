@@ -26,7 +26,7 @@ class ProductController extends Controller
         $dropdown['brand'] = Brand::all();
         return view('admin.products.products_add', ['dropdown' => $dropdown]);
     }
-
+    /* ROUTE MODEL BINDING BEING USED HERE FOR PRODUCT */
     public function CreateProduct(ProductRequest $request, Product $product)
     {
         $createProduct['category_id']  = $request->input('category_id');
