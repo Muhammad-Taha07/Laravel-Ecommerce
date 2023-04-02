@@ -41,7 +41,7 @@
                     <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Category ID</th>
+                      <th>Category</th>
                       <th>Product Name</th>
                       <th>Product Description</th>
                       <th>Product Price</th>
@@ -55,7 +55,7 @@
                       @foreach ($data as $item)
                     <tr>
                     <td>{{$item->id}}</td>
-                    <td>{{$item->category_id}}</td>
+                    <td>{{$item->categories->category_name}}</td>
                     <td>{{$item->product_name}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->price}}</td>
