@@ -30,6 +30,7 @@ class ProductController extends Controller
     public function CreateProduct(ProductRequest $request, Product $product)
     {
         $createProduct['category_id']  = $request->input('category_id');
+        $createProduct['brand_id']     = $request->input('brand_id');
         $createProduct['product_name'] = $request->input('product_name');
         $createProduct['description']  = $request->input('description');
         $createProduct['price']        = $request->input('price');
@@ -49,7 +50,7 @@ class ProductController extends Controller
         }
 
         $request->session('status')->flash('status', 'Product Added Successfully');
-        return redirect('/product/viewProduct');
+        return redirect('/admin/product/viewProduct');
     }
 
     public function editProduct(Product $product)
