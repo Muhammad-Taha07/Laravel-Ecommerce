@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductValidation extends FormRequest
+class ProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,13 @@ class ProductValidation extends FormRequest
     {
         $rules =
         [
-            'category_id' => 'required',
-            'product_name' => 'required',
-            'stock' => 'required|numeric',
-            'price' => 'required|numeric'
+            'category_id'   => 'required',
+            'brand_id'      => 'required',
+            'product_name'  => 'required',
+            'product_image' => 'required',
+            'description'   => 'required',
+            'stock'         => 'required|numeric',
+            'price'         => 'required|numeric',
         ];
         return $rules;
     }
@@ -37,12 +40,15 @@ class ProductValidation extends FormRequest
     {
         $messages =
         [
-            'category_id.required' => 'Category selection is must required.',
+            'category_id.required'    => 'Category selection is required.',
+            'brand_id.required'       => 'Brand Selection is required',
             'product_name.required'   => 'Required Fields cannot be left empty',
-            'price.required'  => 'Required Fields cannot be left empty',
-            'price.numeric'   => 'Required Fields can only be numeric',
-            'stock.required' => 'Required Fields cannot be left empty',
-            'stock.numeric'  => 'Required Fields can only be numeric'
+            'product_image.required'  => 'Product Image should be uploaded when creating a product.',
+            'description'             => 'Product Description is required',
+            'price.required'          => 'Required Fields cannot be left empty',
+            'price.numeric'           => 'Required Fields can only be numeric',
+            'stock.required'          => 'Required Fields cannot be left empty',
+            'stock.numeric'           => 'Required Fields can only be numeric'
         ];
         return $messages;
     }

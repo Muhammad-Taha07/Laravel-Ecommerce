@@ -42,9 +42,11 @@
                             <div class="input-group">
                               <input type="text" name="product_name" placeholder="Enter Product Name" value="{{old('name')}}" class="form-control">
                             </div>
-                            @error('product_name')
-                            <p style="color:red">{{$message}}</p>
-                            @enderror
+                            <span class="text-danger">
+                                @error('product_name')
+                                <ul><li><strong>{{$message}}</strong></li></ul>
+                                @enderror
+                            </span>
                           </div>
                     </div>
 
@@ -57,9 +59,11 @@
                             <option value="{{$data->id}}">{{$data->category_name}}</option>
                             @endforeach
                         </select>
-                      @error('category_id')
-                      <p style="color:red">{{$message}}</p>
-                      @enderror
+                        <span class="text-danger">
+                            @error('category_id')
+                            <ul><li><strong>{{$message}}</strong></li></ul>
+                            @enderror
+                        </span>
                     </div>
                 </div>
 
@@ -72,9 +76,11 @@
                             <option value="{{$data->id}}">{{$data->brand_name}}</option>
                             @endforeach
                         </select>
-                      @error('category_id')
-                      <p style="color:red">{{$message}}</p>
-                      @enderror
+                        <span class="text-danger">
+                            @error('brand_id')
+                            <ul><li><strong>{{$message}}</strong></li></ul>
+                            @enderror
+                        </span>
                     </div>
                 </div>
 
@@ -90,6 +96,11 @@
                       </div>
                     </div>
                     </div>
+                    <span class="text-danger">
+                        @error('product_image')
+                        <ul><li><strong>{{$message}}</strong></li></ul>
+                        @enderror
+                    </span>
                 </div>
 
                 <div class="col-md-3">
@@ -101,9 +112,11 @@
                         </div>
                         <input type="text" placeholder="Enter Product Price" name="price" value="{{old('product_price')}}" class="form-control">
                     </div>
-                    @error('price')
-                    <p style="color:red">{{$message}}</p>
-                    @enderror
+                    <span class="text-danger">
+                        @error('price')
+                        <ul><li><strong>{{$message}}</strong></li></ul>
+                        @enderror
+                    </span>
                 </div>
                 </div>
 
@@ -111,9 +124,11 @@
                     <div class="form-group">
                         <label for="roles">Stocks:</label>
                         <input type="number" placeholder="Enter Stocks" name="stock" value="{{old('purchase_stocks')}}" class="form-control">
-                        @error('stock')
-                        <p style="color:red">{{$message}}</p>
-                        @enderror
+                        <span class="text-danger">
+                            @error('stock')
+                            <ul><li><strong>{{$message}}</strong></li></ul>
+                            @enderror
+                        </span>
                     </div>
                 </div>
                 <!-- /.col -->
@@ -122,6 +137,11 @@
                     <label>Product Description:</label>
                         <textarea class="form-control" placeholder="Enter Description" name="description" rows="4" cols="50"></textarea>
                 </div>
+                <span class="text-danger">
+                    @error('description')
+                    <ul><li><strong>{{$message}}</strong></li></ul>
+                    @enderror
+                </span>
             </div>
 
             <div class="card-footer">
