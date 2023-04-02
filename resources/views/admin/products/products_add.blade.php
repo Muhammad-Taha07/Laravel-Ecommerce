@@ -1,17 +1,7 @@
 @extends('layouts.admin_layout.admin_layout')
 @section('title','Add Product')
 @section('content')
-{{-- @if ($errors->any())
-<div>
-    <ul>
-        @foreach ($errors->any() as $err)
-        <li>
-            {{$err}}
-        </li>
-        @endforeach
-    </ul>
-</div>
-@endif --}}
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -46,13 +36,24 @@
 
             <div class="card-body">
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="roles">Product Name:</label>
+                            <div class="input-group">
+                              <input type="text" name="product_name" placeholder="Enter Product Name" value="{{old('name')}}" class="form-control">
+                            </div>
+                            @error('product_name')
+                            <p style="color:red">{{$message}}</p>
+                            @enderror
+                          </div>
+                    </div>
 
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="roles">Select Category:</label>
                         <select class="form-control" name="category_id" id="id_cat">
                             <option value="" selected>Select Category</option>
-                            @foreach ($dropdown as $data)
+                            @foreach ($dropdown['category'] as $data)
                             <option value="{{$data->id}}">{{$data->category_name}}</option>
                             @endforeach
                         </select>
@@ -62,28 +63,22 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                  <div class="form-group">
-                      <label for="roles">Product Name:</label>
-                      <div class="input-group">
-                        <input type="text" name="product_name" placeholder="Enter Product Name" value="{{old('name')}}" class="form-control">
-                      </div>
-                      @error('product_name')
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="roles">Select Brand:</label>
+                        <select class="form-control" name="brand_id" id="id_brand">
+                            <option value="" selected>Select Brand</option>
+                            @foreach ($dropdown['brand'] as $data)
+                            <option value="{{$data->id}}">{{$data->brand_name}}</option>
+                            @endforeach
+                        </select>
+                      @error('category_id')
                       <p style="color:red">{{$message}}</p>
                       @enderror
                     </div>
-              </div>
+                </div>
 
                 <!-- /.col -->
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="roles">Stocks:</label>
-                        <input type="number" placeholder="Enter Stocks" name="stock" value="{{old('purchase_stocks')}}" class="form-control">
-                        @error('stock')
-                        <p style="color:red">{{$message}}</p>
-                        @enderror
-                    </div>
-                </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -97,7 +92,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                     <label for="roles">Product Price:</label>
                     <div class="input-group">
@@ -110,6 +105,16 @@
                     <p style="color:red">{{$message}}</p>
                     @enderror
                 </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="roles">Stocks:</label>
+                        <input type="number" placeholder="Enter Stocks" name="stock" value="{{old('purchase_stocks')}}" class="form-control">
+                        @error('stock')
+                        <p style="color:red">{{$message}}</p>
+                        @enderror
+                    </div>
                 </div>
                 <!-- /.col -->
                 </div>
