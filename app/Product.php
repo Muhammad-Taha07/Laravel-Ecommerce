@@ -9,12 +9,12 @@ use App\Image;
 class Product extends Model
 {
     protected $table = 'products';
-    protected $fillable = ['category_id', 'product_name', 'description', 'price', 'stock', 'created_at', 'updated_at'];
+    protected $fillable = ['category_id', 'brand_id', 'product_name', 'description', 'price', 'stock', 'created_at', 'updated_at'];
 
 
     public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     /* Image Modelling - Polyorphic Relationship */
