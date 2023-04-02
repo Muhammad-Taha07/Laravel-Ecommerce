@@ -68,7 +68,7 @@
                 <td>
                     {{-- <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-trash"></i></a> --}}
                     <a href="{{route('edit-category', $item->id)}}"><i class="fa fa-edit"></i></a>
-                    <a href="{{route('delete-category',$item->id)}}" style="margin-left: 10px"><i class="fa fa-trash"></i></a>
+                    <a href="{{route('delete-brand',$item->id)}}" style="margin-left: 10px"><i class="fa fa-trash"></i></a>
                 </td>
                 </tr>
                 @endforeach

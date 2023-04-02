@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Brand;
 use App\Image;
 use App\Http\Requests\BrandRequest;
+use Illuminate\Support\Facades\Session;
 
 
 class BrandController extends Controller
@@ -50,6 +51,13 @@ class BrandController extends Controller
             $createBrand->images()->save($photo);
         }
         $request->session('status')->flash('status', 'Brand Added Successfully');
+        return redirect('/admin/brand/view');
+    }
+
+    public function deleteBrand(Brand $brand)
+    {
+        $brand->delete();
+        Session::flash('status', 'Brand Deleted Successfully');
         return redirect('/admin/brand/view');
     }
 
