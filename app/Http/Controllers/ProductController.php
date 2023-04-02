@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 use App\Image;
 use App\Product;
 use App\Category;
+use App\Brand;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\ProductValidation;
+use App\Http\Requests\ProductRequest;
 use App\Http\Requests\CategoryValidation;
 
 
@@ -21,11 +22,12 @@ class ProductController extends Controller
 
     public function AddProductForm()
     {
-        $dropdown = Category::all();
+        $dropdown['category'] = Category::all();
+        $dropdown['brand'] = Brand::all();
         return view('admin.products.products_add', ['dropdown' => $dropdown]);
     }
 
-    public function CreateProduct(ProductValidation $request, Product $product)
+    public function CreateProduct(ProductRequest $request, Product $product)
     {
         $createProduct['category_id']  = $request->input('category_id');
         $createProduct['product_name'] = $request->input('product_name');
@@ -58,7 +60,7 @@ class ProductController extends Controller
             return view('admin.products.products_edit', ['product' => $product, 'dropdown' => $dropdown]);
         }
     }
-    
+
     public function updateProduct(Product $product, Request $request)
     {
         if($request->hasFile('product_image'))
